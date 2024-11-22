@@ -1,0 +1,24 @@
+descriptor-schema-version: "2.3"
+info:
+  name: Certbot-IOx
+  description: "Certbot container for making certificates available to IOS"
+  version: "0.0.1"
+  author-link: "http://4ms.co.uk"
+  author-name: "Dave Noles"
+
+app:
+  id: certbot-iox
+  version: 0.0.1
+  resources:
+    cpu: 300
+    memory: 128
+    persist:
+      storage:
+        - source: /flash/IOx/
+          dest: /data/host/
+      network:
+        - interface: eth0
+          network_mode: bridge
+  runtime:
+    docker:
+      image: certbot-iox
