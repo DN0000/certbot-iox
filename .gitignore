@@ -3,3 +3,4 @@ iox*/
 pkg/
 .package*
 *.tar
+*.metadata
