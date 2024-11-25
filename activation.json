@@ -1,0 +1,41 @@
+{
+    "env": {
+      "DEBUG": "true"
+    },
+    "resources": {
+      "disk": 10,
+      "host-mounts": [
+        {
+          "source": "/bootflash/SHARED-IOX",
+          "target": "/etc/letsencrypt/"
+        }
+      ],
+      "network": [
+        {
+          "interface-name": "eth0",
+          "port_map": {
+            "tcp": [
+              { "external_port": 80, "internal_port": 80 }
+                ]
+          },
+          "network-name": "VPG0",
+          "description": "Router Interface",
+          "ipv4": {
+            "mode": "static",
+            "dns": "10.255.255.0",
+            "ip": "10.128.128.34",
+            "prefix": "27",
+            "default": true,
+            "gateway": "10.128.128.33"
+          },
+          "ipv6": {
+            "disabled": true
+          },
+          "mirroring": "no",
+          "intf-matched": true
+        }
+      ],
+      "profile": "default"
+    }
+  }
+  

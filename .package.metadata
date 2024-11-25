@@ -1,1 +1,1 @@
-{"dockerInfo":{"name":"certbot-iox","tag":"latest"}}
+{"dockerInfo":{"name":"localhost/dnoles/certbot-iox","tag":"0.16"}}

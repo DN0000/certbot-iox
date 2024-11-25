@@ -1,24 +1,22 @@
-descriptor-schema-version: "2.3"
+descriptor-schema-version: "2.17"
 info:
-  name: Certbot-IOx
-  description: "Certbot container for making certificates available to IOS"
-  version: "0.0.1"
-  author-link: "http://4ms.co.uk"
-  author-name: "Dave Noles"
-
+  name: localhost/dnoles/certbot-iox
+  version: latest
 app:
-  id: certbot-iox
-  version: 0.0.1
+  cpuarch: x86_64
   resources:
-    cpu: 300
-    memory: 128
-    persist:
-      storage:
-        - source: /flash/IOx/
-          dest: /data/host/
-      network:
-        - interface: eth0
-          network_mode: bridge
-  runtime:
-    docker:
-      image: certbot-iox
+    host_mounts:
+      - target_mount: "/etc/letsencrypt/"
+        description: "Certificate files in container"
+        host_mount_path: "/bootflash/SHARED-IOX"
+    network:
+      - interface-name: eth0
+        ports:
+          tcp:
+            - "80"
+  startup:
+    rootfs: rootfs.tar
+    target:
+      - /usr/local/bin/post-deploy.sh
+    workdir: /data
+  type: docker
