@@ -6,7 +6,7 @@ exec > /dev/ttyS2 2>&1
 
 # Function to log messages
 log_message() {
-    echo "CERTBOT - post-deploy.sh - $1"
+    echo "post-deploy.sh - $1"
 }
 
 # Trap errors and cleanup

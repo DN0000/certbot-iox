@@ -4,7 +4,7 @@
 execute_and_log() {
     script_name=$(basename "$0")
     {
-        echo "CERTBOT - $script_name - Executing: $*"
+        echo "$script_name - Executing: $*"
         "$@"
     } 2>&1 | while IFS= read -r line; do
         echo "CERTBOT - $script_name - $line"
