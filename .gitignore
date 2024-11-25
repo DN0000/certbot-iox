@@ -4,3 +4,4 @@ pkg/
 .package*
 *.tar
 *.metadata
+.package.metadata
