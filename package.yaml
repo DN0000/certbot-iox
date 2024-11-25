@@ -17,6 +17,6 @@ app:
   startup:
     rootfs: rootfs.tar
     target:
-      - /usr/local/bin/post-deploy.sh
+      - certbot-iox.sh
     workdir: /data
   type: docker
