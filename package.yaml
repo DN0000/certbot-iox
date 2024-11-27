@@ -1,13 +1,11 @@
 descriptor-schema-version: "2.17"
 info:
   name: certbot-iox
-  version: dev
+  version: 0.1.0
   description: "Certbot IOx application for managing certificates"
 app:
-  activation: manual
   cpuarch: x86_64
   resources:
-    restart: no  
     host_mounts:
       - target_mount: "/etc/letsencrypt/"
         description: "Certificate files in container"

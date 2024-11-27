@@ -1,7 +1,0 @@
-event manager environment CERTBOT-APPID certbot
-
-event manager applet START-CERTBOT
- event timer cron cron-entry "0 4 * * *"
- action 1.0 syslog msg "Applet: START-CERTBOT Checking if certificate requires renewal"
- action 2.0 cli command "enable"
- action 3.0 cli command "app-hosting start appid $_CERTBOT-APPID"

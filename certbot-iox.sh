@@ -7,8 +7,10 @@ mkdir -p /etc/letsencrypt/work
 # Remove certbot-iox.log
 rm -f /etc/letsencrypt/certbot-iox.log
 
-echo "Running Certbot" 2>&1 > /etc/letsencrypt/certbot-iox.log
-certbot certonly --force-renewal 2>&1 >> /etc/letsencrypt/certbot-iox.log
+echo "First run of Certbot" 2>&1 > /etc/letsencrypt/certbot-iox.log
+certbot certonly 2>&1 >> /etc/letsencrypt/certbot-iox.log
+echo "Certbot first run complete" 2>&1 >> /etc/letsencrypt/certbot-iox.log
 
-echo "Certbot run complete" 2>&1 >> /etc/letsencrypt/certbot-iox.log
 
+# crond in foreground
+crond -f -l 2 2>&1 >> /etc/letsencrypt/certbot-iox.log
