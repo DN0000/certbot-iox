@@ -1,4 +1,7 @@
 2024*/
 iox*/
 pkg/
+.package*
 *.tar
+*.metadata
+.package.metadata

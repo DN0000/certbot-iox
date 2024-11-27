@@ -1,16 +1,14 @@
 #!/bin/sh
+echo "Start iox script - Creating directories" 
+cp -r  $CAF_APP_CONFIG_FILE /etc/letsencrypt/cli.ini
+mkdir -p /etc/letsencrypt/logs
+mkdir -p /etc/letsencrypt/work
 
-# Function to log messages
-execute_and_log() {
-    script_name=$(basename "$0")
-    {
-        echo "$script_name - Executing: $*"
-        "$@"
-    } 2>&1 | while IFS= read -r line; do
-        echo "CERTBOT - $script_name - $line"
-    done | tee /dev/ttyS2
-}
+# Remove certbot-iox.log
+rm -f /etc/letsencrypt/certbot-iox.log
 
-execute_and_log echo "Script Start"
+echo "Running Certbot" 2>&1 > /etc/letsencrypt/certbot-iox.log
+certbot certonly --force-renewal 2>&1 >> /etc/letsencrypt/certbot-iox.log
 
-execute_and_log certbot certonly --config $CAF_APP_CONFIG_FILE 
+echo "Certbot run complete" 2>&1 >> /etc/letsencrypt/certbot-iox.log
+

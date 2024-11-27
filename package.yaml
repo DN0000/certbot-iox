@@ -1,10 +1,13 @@
 descriptor-schema-version: "2.17"
 info:
-  name: localhost/dnoles/certbot-iox
-  version: latest
+  name: certbot-iox
+  version: dev
+  description: "Certbot IOx application for managing certificates"
 app:
+  activation: manual
   cpuarch: x86_64
   resources:
+    restart: no  
     host_mounts:
       - target_mount: "/etc/letsencrypt/"
         description: "Certificate files in container"
@@ -16,7 +19,6 @@ app:
             - "80"
   startup:
     rootfs: rootfs.tar
-    target:
-      - certbot-iox.sh
-    workdir: /data
+    target: ["certbot-iox.sh"]
+    workdir: /opt/certbot
   type: docker

@@ -1,15 +1,6 @@
 {
-    "env": {
-        "DEBUG": "true"
-    },
     "resources": {
         "disk": 10,
-        "host-mounts": [
-            {
-                "source": "/bootflash/SHARED-IOX",
-                "target": "/etc/letsencrypt/"
-            }
-        ],
         "network": [
             {
                 "interface-name": "eth0",
