@@ -1,6 +1,6 @@
+```
 !! Create Virtual Interface for container
 
-```
 interface VirtualPortGroup0
  description :: IoX Network ::
  vrf forwarding INET
@@ -21,7 +21,7 @@ ip access-list standard NAT_ACL
  10 permit 10.128.128.32 0.0.0.31
 
 !! Enable IOx globally
-
+iox
 
 !! EEM Script to delete, import, and re-apply your trustpoint
 !! Update to your requirements
